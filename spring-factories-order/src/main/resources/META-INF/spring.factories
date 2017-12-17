@@ -1,0 +1,21 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+me.fahimfarook.springfactoriesorder.autoconfig.EnableAutoConfiguration,\
+me.fahimfarook.springfactoriesorder.autoconfig.EnableAutoConfigurationInitializer,\
+me.fahimfarook.springfactoriesorder.autoconfig.EnableAutoConfigurationListener,\
+me.fahimfarook.springfactoriesorder.autoconfig.EnableAutoConfigurationBFPP
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+me.fahimfarook.springfactoriesorder.listener.ApplicationListener
+
+# Bootstrap components
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+me.fahimfarook.springfactoriesorder.bootstrap.BootstrapConfiguration,\
+me.fahimfarook.springfactoriesorder.bootstrap.BootstrapConfigurationInitalizer,\
+me.fahimfarook.springfactoriesorder.bootstrap.BootstrapConfigurationListener,\
+me.fahimfarook.springfactoriesorder.bootstrap.BootstrapConfigurationBFPP
+
+# Environment post processors
+org.springframework.boot.env.EnvironmentPostProcessor=\
+me.fahimfarook.springfactoriesorder.envpp.EnvironmentPostProcessor
