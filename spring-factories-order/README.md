@@ -1,6 +1,23 @@
 # Order of beans defined in spring.factories
 
+## Conclustions
 
+I've made following conclusions on bean constrcutions order. The spring.factoris elements are processed in the following order.
+
+1. ApplicationListeners
+2. EnvironmentPostProcessor
+2. BootstrapConfigurations 
+3. EnableAutoConfiguration
+
+- `BootstrapConfigurations` are loaded by one of ApplicationListeners only i.e. `BootstrapApplicationListener`
+- `EnvironmentPostProcessor#postProcessEnvironment` is invoked before any `BootstrapConfiguration` `@Beans` are constrcuted.
+- `BeanFactoryPostProcessors`, `ApplicationListeners` and `ApplicationInitilizers` can be configured as either BootstrapConfigurations or EnableAutoConfiguration in spring.factories -- OR -- defind as @Beans in @Configuration class (which is either BootstrapConfiguration or EnableAutoConfiguration in spring.factories). In either case
+   - spring.factories beans constructed befor @Beans in @Configuration
+   - `BeanFactoryPostProcessor#postProcessBeanFactory()` is run before constrcuting the other beans
+   - `ApplicationInitilizer#initalize()` is invoked after creating all the beans in @Configuration
+
+
+## Results
 
 ```
 me.fahimfarook.springfactoriesorder.listener.ApplicationListener -> load
